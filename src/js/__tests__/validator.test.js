@@ -6,9 +6,9 @@ test.each([
   ['test123_test', true],
   ['test-123test', true]
 ])('testing validateUsername method with valid data', (name, expected) => {
-  let validator = new Validator(name);
+  let validator = new Validator();
 
-  expect(validator.validateUsername()).toEqual(expected);
+  expect(validator.validateUsername(name)).toEqual(expected);
 });
 
 test.each([
@@ -19,7 +19,7 @@ test.each([
   ['test-']
 ])('testing validateUsername method with invalid data', (name) => {
   expect(() => {
-    const validator = new Validator(name);
-    validator.validateUsername();
+    const validator = new Validator();
+    validator.validateUsername(name);
   }).toThrow(new Error("Недопустимое имя пользователя"));
 });

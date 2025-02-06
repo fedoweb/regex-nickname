@@ -1,10 +1,7 @@
 export default class Validator {
-    constructor(userName) {
-        this.userName = userName;
-    }
 
-    validateUsername() {
-        const regex = /^[a-z]+(?!.*\d{4})[a-z0-9_-]*[a-z]+$/i.test(this.userName);
+    validateUsername(name) {
+        const regex = /^[a-z]+(?!.*\d{4})[a-z0-9_-]*[a-z]+$/i.test(name);
 
         if (!regex) {
             throw new Error("Недопустимое имя пользователя"); 
